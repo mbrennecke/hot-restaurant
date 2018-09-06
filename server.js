@@ -7,13 +7,16 @@ var PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('public'));
 
 var tables = [];
 
 var waitList = {};
 
 app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.get("/index", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
