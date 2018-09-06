@@ -17,7 +17,7 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/add", function(req, res) {
+app.get("/reservation", function(req, res) {
   res.sendFile(path.join(__dirname, "add.html"));
 });
 
