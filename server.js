@@ -18,16 +18,11 @@ app.get("/", function(req, res) {
 });
 
 app.get("/reservation", function(req, res) {
-  res.sendFile(path.join(__dirname, "add.html"));
+  res.sendFile(path.join(__dirname, "reservation.html"));
 });
 
-// Displays all tables
+// Displays all tables and waitlist
 app.get("/api/tables", function(req, res) {
-  return res.json(characters);
-});
-
-// Displays waitlist
-app.get("/api/waitlist", function(req, res) {
   return res.json(characters);
 });
 
