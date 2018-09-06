@@ -1,0 +1,25 @@
+{
+  "name": "hot-restaurant",
+  "version": "1.0.0",
+  "description": "App to demonstrate api GETS and PUTS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbrennecke/hot-restaurant.git"
+  },
+  "author": "Matthew Brennecke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mbrennecke/hot-restaurant/issues"
+  },
+  "homepage": "https://github.com/mbrennecke/hot-restaurant#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
