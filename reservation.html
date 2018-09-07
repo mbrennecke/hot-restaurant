@@ -67,15 +67,18 @@
 		</div>
 		
 		<script type="text/javascript">
-		var formData = {};
-		console.log(this.name);
-		formData[name] = this.name;
-		formData[phone] = this.phone;
-		formData[email] = this.email;
-		formData[id] = this.id;
+		
+			$("#idForm").on("click", (function(e) {
+			// avoid to execute the actual submit of the form.
+			e.preventDefault();
+			var formData = {};
+		formData.name = $("#name").val();
+		formData.phone = $("#phone").val();
+		formData.email = $("#email").val();
+		formData.id = $("#id").val();
 		console.log(formData);
-			$("#idForm").submit(function(e) {
-				$.ajax({
+			
+		$.ajax({
 					   type: "POST",
 					   url: "/api/reservations",
 					   data: formData,
@@ -83,10 +86,10 @@
 					   {
 						   alert(data); // show response from the php script.
 					   }
-					 });
+					 });			
 
-				e.preventDefault(); // avoid to execute the actual submit of the form.
-			});
+				 
+			}));
 		
 
 
