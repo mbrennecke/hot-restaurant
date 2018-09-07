@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 var tables = [];
 
-var waitList = {};
+var waitlist = [];
 
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
@@ -24,9 +24,14 @@ app.get("/reservation", function(req, res) {
   res.sendFile(path.join(__dirname, "reservation.html"));
 });
 
-// Displays all reserved tables in json
+// Displays tables page
 app.get("/tables", function(req, res) {
   res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+// Displays all tables in json
+app.get("/api/tables", function(req, res) {
+  return res.json(tables);
 });
 
 // Displays all waitlist in json
@@ -35,12 +40,19 @@ app.get("/api/waitlist", function(req, res) {
 });
 
 // Reserve Table - takes in JSON input
-app.post("/api/tables", function(req, res) {
+app.post("/api/reservations", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body-parser middleware
   var newtable = req.body;
+  
+  console.log(newtable);
 
-  tables.push(newtable);
+  if (tables.length < 5){
+	  tables.push(newtable);
+  } else {
+	  waitlist.push(newtable);
+  }
+  
 
   res.json(newtable);
 });
